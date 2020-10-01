@@ -56,6 +56,7 @@ func (handler *WaaierHandler) HandleTextMessage(message whatsapp.TextMessage) {
 	// Auto reset if it's past the Waaier time.
 	if handler.Info.Time.Before(time.Now()) {
 		handler.Info = nil
+		return
 	}
 
 	// Respond to a second Waaier request with the first.
